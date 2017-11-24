@@ -13,7 +13,7 @@ function verification(isValid, isPotentiallyValid, month, year) {
   };
 }
 
-function expirationDate(value) {
+function expirationDate(value, maxYear) {
   var date, monthValid, yearValid, isValidForThisYear;
 
   if (typeof value === 'string') {
@@ -29,7 +29,7 @@ function expirationDate(value) {
   }
 
   monthValid = expirationMonth(date.month);
-  yearValid = expirationYear(date.year);
+  yearValid = expirationYear(date.year, maxYear);
 
   if (monthValid.isValid) {
     if (yearValid.isCurrentYear) {
