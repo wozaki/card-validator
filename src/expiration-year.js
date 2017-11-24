@@ -1,6 +1,6 @@
 'use strict';
 
-var DEFAULT_MAX_YEAR = require('./default-max-year');
+var DEFAULT_MAX_YEAR = 19;
 
 function verification(isValid, isPotentiallyValid, isCurrentYear) {
   return {
