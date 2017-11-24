@@ -1,6 +1,6 @@
 'use strict';
 
-var maxYear = 19;
+var DEFAULT_MAX_YEAR = require('./default-max-year');
 
 function verification(isValid, isPotentiallyValid, isCurrentYear) {
   return {
@@ -10,8 +10,10 @@ function verification(isValid, isPotentiallyValid, isCurrentYear) {
   };
 }
 
-function expirationYear(value) {
+function expirationYear(value, maxYear) {
   var currentFirstTwo, currentYear, firstTwo, len, twoDigitYear, valid, isCurrentYear;
+
+  maxYear = maxYear || DEFAULT_MAX_YEAR;
 
   if (typeof value !== 'string') {
     return verification(false, false);
