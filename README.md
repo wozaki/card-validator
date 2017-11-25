@@ -210,9 +210,9 @@ A fake session where a user is entering a card number may look like:
 
 - - -
 
-#### `valid.expirationDate(value: string|object, maxYear: integer): object`
+#### `valid.expirationDate(value: string|object, maxElapsedYear: integer): object`
 
-The `maxYear` can be overridden by passing in an `integer` as a second argument.
+The `maxElapsedYear` can be overridden by passing in an `integer` as a second argument.
 
 ```javascript
 {
@@ -248,9 +248,9 @@ The `maxYear` can be overridden by passing in an `integer` as a second argument.
 
 - - -
 
-#### `valid.expirationYear(value: string, maxYear: integer): object`
+#### `valid.expirationYear(value: string, maxElapsedYear: integer): object`
 
-`expirationYear` accepts 2 or 4 digit years. `16` and `2016` are both valid entries. The `maxYear` can be overridden by passing in an `integer` as a second argument.
+`expirationYear` accepts 2 or 4 digit years. `16` and `2016` are both valid entries. The `maxElapsedYear` can be overridden by passing in an `integer` as a second argument.
 
 ```javascript
 {

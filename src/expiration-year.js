@@ -1,6 +1,6 @@
 'use strict';
 
-var DEFAULT_MAX_YEAR = 19;
+var DEFAULT_MAX_ELAPSED_YEAR = 19;
 
 function verification(isValid, isPotentiallyValid, isCurrentYear) {
   return {
@@ -10,10 +10,10 @@ function verification(isValid, isPotentiallyValid, isCurrentYear) {
   };
 }
 
-function expirationYear(value, maxYear) {
+function expirationYear(value, maxElapsedYear) {
   var currentFirstTwo, currentYear, firstTwo, len, twoDigitYear, valid, isCurrentYear;
 
-  maxYear = maxYear || DEFAULT_MAX_YEAR;
+  maxElapsedYear = maxElapsedYear || DEFAULT_MAX_ELAPSED_YEAR;
 
   if (typeof value !== 'string') {
     return verification(false, false);
@@ -49,10 +49,10 @@ function expirationYear(value, maxYear) {
 
   if (len === 2) {
     isCurrentYear = twoDigitYear === value;
-    valid = value >= twoDigitYear && value <= twoDigitYear + maxYear;
+    valid = value >= twoDigitYear && value <= twoDigitYear + maxElapsedYear;
   } else if (len === 4) {
     isCurrentYear = currentYear === value;
-    valid = value >= currentYear && value <= currentYear + maxYear;
+    valid = value >= currentYear && value <= currentYear + maxElapsedYear;
   }
 
   return verification(valid, valid, isCurrentYear);

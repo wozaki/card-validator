@@ -219,17 +219,17 @@ describe('expirationDate validates', function () {
       });
     });
 
-    describe('maxYear', function () {
-      it('defaults maxYear is 19', function () {
+    describe('maxElapsedYear', function () {
+      it('defaults maxElapsedYear is 19', function () {
         expect(expirationDate(currentMonth + ' / ' + yearsFromNow(19))).to.deep.equal({isValid: true, isPotentiallyValid: true, month: currentMonth.toString(), year: yearsFromNow(19).toString()});
         expect(expirationDate(currentMonth + ' / ' + yearsFromNow(20))).to.deep.equal({isValid: false, isPotentiallyValid: false, month: null, year: null});
       });
 
-      it('accepts maxYear', function () {
+      it('accepts maxElapsedYear', function () {
         expect(expirationDate(currentMonth + ' / ' + yearsFromNow(20), 20)).to.deep.equal({isValid: true, isPotentiallyValid: true, month: currentMonth.toString(), year: yearsFromNow(20).toString()});
       });
 
-      it('returns invalid if beyond maxYear', function () {
+      it('returns invalid if beyond maxElapsedYear', function () {
         expect(expirationDate(currentMonth + ' / ' + yearsFromNow(21), 20)).to.deep.equal({isValid: false, isPotentiallyValid: false, month: null, year: null});
       });
     });
